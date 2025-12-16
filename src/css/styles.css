@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
+    background: #fff7e6;
+
+    background-image: url('/src/assets/background.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.screen {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: flex;
+}
+
+.quiz-option, .play-button, .menu-btn {
+    background-color: orange;
+    border: 2px solid black;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 1.5rem;
+    font-family: 'Comic Sans MS', sans-serif;
+    cursor: pointer;
+
+    /* Give slightly uneven look */
+    box-shadow: 3px 3px 0px black;
+    transition: transform 0.1s;
+}
+
+/* Hover effect */
+.quiz-option:hover {
+  transform: scale(1.1); /* slightly enlarge */
+}
+.quiz-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container for quiz buttons */
+#quiz-options {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-gap: 30px;
+}
+
+.play-button:hover, .menu-btn:hover {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+.play-button {
+    background: #ff9f1c;
+    border: 4px solid #d87f00;
+    padding: 25px 50px;
+    font-size: 3rem;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #c56e00;
+    transition: 0.1s;
+}
+
+.play-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #c56e00;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-gap: 30px;
+}
+
+.menu-btn {
+    background: #ffd166;
+    border: 4px solid #e08c00;
+    padding: 20px;
+    font-size: 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.menu-btn img.icon {
+    width: 50px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+/* Canvas */
+#draw-canvas {
+    background: white;
+    border: 4px dashed orange;
+    width: 400px;
+    height: 400px;
+    touch-action: none;
+}
+
+.controls button {
+    margin: 12px;
+    padding: 15px;
+    font-size: 1.4rem;
+}
+
+.prompt-text {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ff7a00;
+    font-weight: bold;
+}
+
+.feedback-text {
+    font-size: 2.4rem;
+    margin-top: 20px;
+    color: #444;
+    height: 50px;
+    text-align: center;
+}
+
+/* SETTINGS / MIC BUTTONS */
+.top-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.top-right-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Settings & Mic Icons */
+/* -------------------- */
+#settings-btn, #mic-btn {
+    position: absolute;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+}
+
+#settings-btn {
+    bottom: 20px;
+    right: 20px;
+        background-color: #ff9f1c;
+    border: 3px solid #c56e00;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #c56e00;
+    transition: transform 0.1s;
+}
+
+#mic-btn {
+    top: 20px;
+    right: 20px;
+        background-color: #ff9f1c;
+    border: 3px solid #c56e00;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #c56e00;
+    transition: transform 0.1s;
+}
+
+#home-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #ff9f1c;
+    border: 3px solid #c56e00;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #c56e00;
+    transition: transform 0.1s;
+}
+
+#home-btn:hover {
+    transform: rotate(-5deg) scale(1.1);
+}
+
+/* Optional: color the icon itself */
+#home-btn i {
+    color: black;
+}
+
+.ai-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.ai-character {
+    width: 200px;
+    height: auto;
+    border: 3px dashed black;
+    border-radius: 12px;
+    background-color: #fffef2;
+    padding: 10px;
+    box-shadow: 3px 3px 0 black;
+}
+
+#ai-back-btn {
+    padding-top: 20px;
+}
+
+.speech-bubble {
+    position: relative;
+    background: #fff;
+    border: 3px solid black;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-top: 20px;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: 1.5rem;
+    box-shadow: 3px 3px 0 black;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50px;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-bottom-color: #fff;
+}

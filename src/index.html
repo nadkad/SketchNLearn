@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sketch & Learn</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://kit.fontawesome.com/f19c787c0f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    
+  <!-- SETTINGS / MIC BUTTONS -->
+  <button id="settings-btn" class="top-right"><i class="fa-solid fa-gear"></i></button>
+  <button id="mic-btn" class="top-right-right"><i class="fa-solid fa-microphone"></i></button>
+  <button id="home-btn" title="Home" class="hidden"><i class="fas fa-home"></i></button>
+
+  <!-- START SCREEN -->
+  <div id="start-screen" class="screen visible">
+      <button id="play-btn" class="play-button">Play<i class="fa-solid fa-play"></i></button>
+  </div>
+
+  <!-- MENU SCREEN -->
+  <div id="menu-screen" class="screen hidden">
+      <div class="menu-grid">
+          <button class="menu-btn" id="btn-letters">
+            ABCs
+            <i class="fa-solid fa-pencil fa-2x"></i></button>
+          <button class="menu-btn" id="btn-numbers">
+            123s
+            <i class="fa-regular fa-hand fa-2x"></i></button>
+          <button class="menu-btn" id="btn-shapes">
+              Shapes
+              <i class="fa-solid fa-shapes fa-2x"></i>
+          </button>
+          <button class="menu-btn" id="btn-animals">
+              Animals
+              <i class="fa-solid fa-paw fa-2x"></i>
+          </button>
+      </div>
+  </div>
+
+  <!-- DRAW SCREEN  -->
+  <div id="draw-screen" class="screen hidden">
+      <div id="prompt" class="prompt-text">Try drawing A</div>
+      
+      <canvas id="draw-canvas"></canvas>
+      
+      <div class="controls">
+          <button id="clear-btn">Clear</button>
+          <button id="check-btn">Check</button>
+      </div>
+      
+      <div id="feedback" class="feedback-text"></div>
+  </div>
+
+  <!-- REUSABLE IMAGE QUIZ SCREEN -->
+    <div id="image-quiz-screen" class="screen hidden">
+    <h2 id="question" class="prompt-text">
+        <!-- Dynamic prompt: "Which one is a cow?" -->
+    </h2>
+
+    <!-- Container for dynamically generated options -->
+    <div id="quiz-options" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+        <!-- Buttons will be injected here by renderImageQuizOptions() -->
+    </div>
+
+    <!-- Feedback message -->
+    <p id="answer" class="feedback-text"></p>
+
+    </div>
+
+
+  <!-- COMPLETION SCREEN -->
+    <div id="complete-screen" class="screen hidden">
+    <h1 id="complete-title" style="color: green; text-align: center;">
+        You're done!
+    </h1>
+
+    <p id="complete-message" style="color: green; text-align: center; font-size: 1.2em;">
+        100% complete
+    </p>
+
+    </div>
+
+
+  <!-- AI Chat Screen -->
+<div id="ai-screen" class="screen hidden">
+    <div class="ai-container">
+        <img src="assets/character.jpg" alt="AI Character" class="ai-character">
+        <div class="speech-bubble">Hey, how can I help you?</div>
+    </div>
+    <button id="ai-back-btn" class="menu-btn">Back</button>
+</div>
+
+ <!-- TensorFlow.js -->
+ <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.6.0/dist/tf.min.js"></script>
+ <script type="module" src="app.js" defer></script>
+ <script type="module" src="drawing/canvas.js"></script>
+ 
+</body>
+</html>
